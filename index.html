@@ -1,12 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <link rel="stylesheet" href="style.css">
+    <title>RadixSort</title>
 </head>
+
 <body>
-    
+    <h1>RadixSort</h1>
+    <div class="buttons">
+        <button id="btn-start">Start</button>
+        <button id="btn-max" class="hidden">Find Max Digit</button>
+        <button id="btn-sort" class="hidden">Sort</button>
+    </div>
+    <div id="current-array"></div>
+    <h3 id="max-digit"></h3>
+    <div id="board" class="hidden">
+        <div id="btn-board">
+            <button id="btn-play">Play</button>
+            <button id="btn-auto">Autoplay</button>
+            <div id="current-iteration">Current iteration: 0</div>
+        </div>
+        <div id="buckets">
+            <div id="b-0" class="bucket">
+                <div class="numbers"></div>
+                <div class="label">0</div>
+            </div>
+            <div id="b-1" class="bucket">
+                <div class="numbers"></div>
+                <div class="label">1</div>
+            </div>
+            <div id="b-2" class="bucket">
+                <div class="numbers"></div>
+                <div class="label">2</div>
+            </div>
+            <div id="b-3" class="bucket">
+                <div class="numbers"></div>
+                <div class="label">3</div>
+            </div>
+            <div id="b-4" class="bucket">
+                <div class="numbers"></div>
+                <div class="label">4</div>
+            </div>
+            <div id="b-5" class="bucket">
+                <div class="numbers"></div>
+                <div class="label">5</div>
+            </div>
+            <div id="b-6" class="bucket">
+                <div class="numbers"></div>
+                <div class="label">6</div>
+            </div>
+            <div id="b-7" class="bucket">
+                <div class="numbers"></div>
+                <div class="label">7</div>
+            </div>
+            <div id="b-8" class="bucket">
+                <div class="numbers"></div>
+                <div class="label">8</div>
+            </div>
+            <div id="b-9" class="bucket">
+                <div class="numbers"></div>
+                <div class="label">9</div>
+            </div>
+        </div>
+        <div id="new-array"></div>
+    </div>
     <script src="./view/view.js" type="module"></script>
 </body>
+
 </html>
