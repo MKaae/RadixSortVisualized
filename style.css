@@ -4,7 +4,13 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    min-width: 386px;
 }
+
+button {
+    color: rgb(120, 253, 37);
+}
+
 .buttons {
     display: flex;
     flex-direction: column;
@@ -21,15 +27,17 @@ body {
 
 .bucket{
     text-align: center;
+    font-size: 18px;
 }
 
 .numbers {
-    border: red 1px dotted;
+    border: 4px double black;
     width: 100px;
     height: 250px;
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-start;
+    background-color: rgb(110, 117, 129);
 }
 
 #btn-board {
@@ -37,6 +45,57 @@ body {
     flex-direction: row;
 }
 
+@media (max-width: 1178px) {
+    #buckets {
+        flex-wrap: wrap;
+    }
+}
+
 .hidden {
     display:none !important;
+}
+
+.redtext {
+    color: red;
+}
+
+#new-array {
+    text-align: center;
+    font-size: 20px;
+}
+
+#second-text {
+    text-align: center;
+}
+
+#current-array {
+    font-size: 20px;
+}
+
+#max-digit {
+    font-size: 20px;
+}
+
+#current-iteration {
+    font-size: 20px;
+    margin-left: auto;
+    margin-top: 5px;
+}
+
+#radix-text {
+    color: black;
+    text-shadow:
+        -0.5px -0.5px 0 white,  
+        0.5px -0.5px 0 white,
+        -0.5px 0.5px 0 white,
+        0.5px 0.5px 0 white;
+}
+
+#radix-sort-text {
+    color: red;
+    text-shadow: 
+        -0.5px -0.5px 0 white,  
+        0.5px -0.5px 0 white,
+        -0.5px 0.5px 0 white,
+        0.5px 0.5px 0 white;
 }

@@ -10,19 +10,21 @@
 </head>
 
 <body>
-    <h1>RadixSort</h1>
+    <h1><span id="radix-text">Radix</span><span id="radix-sort-text">Sort</span></h1>
     <div class="buttons">
         <button id="btn-start">Start</button>
         <button id="btn-max" class="hidden">Find Max Digit</button>
         <button id="btn-sort" class="hidden">Sort</button>
     </div>
+    <h3 id="first-text">Follow the instructions to use Radix Sort to sort an array with. Play is manual sorting, autoplay is automated sorting.</h3>
     <div id="current-array"></div>
-    <h3 id="max-digit"></h3>
+    <div id="max-digit"></div>
     <div id="board" class="hidden">
         <div id="btn-board">
             <button id="btn-play">Play</button>
+            <button id="btn-next" class="hidden">Next</button>    
             <button id="btn-auto">Autoplay</button>
-            <div id="current-iteration">Current iteration: 0</div>
+            <button id="btn-reset" class="hidden">Reset</button>
         </div>
         <div id="buckets">
             <div id="b-0" class="bucket">
@@ -66,8 +68,14 @@
                 <div class="label">9</div>
             </div>
         </div>
+        <div id="current-iteration">Current iteration: 0</div>
         <div id="new-array"></div>
     </div>
+    <h3 id="second-text" class="hidden">
+        Elements in <span class="redtext">red text</span> is the last sorted element. The array in the bottom is each iterations new array.
+        Radix sort, sorts by taking in an array, then creating 10 buckets. Afterwards it sorts each element in the array into the buckets, and creates a new array
+        in the end of that iteration. It iterates an amount of time equal the highest number of digits in a number.
+    </h3>
     <script src="./view/view.js" type="module"></script>
 </body>
 

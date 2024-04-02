@@ -1,5 +1,5 @@
 "use strict";
-import { populateBoard } from "../view/view.js"
+import { populateBoard, nextClick } from "../view/view.js"
 
 const testArr = [0, 1, 382, 32, 49, 20, 2133, 34825, 123, 9, 4294]; // Array that will be sorted.
 let iterations = []; // This contains every iteration of the algorithm so we can visualise it later on.
@@ -71,7 +71,24 @@ export function autoBoard() {
         }
     }
 }
+    // TODO : Remove either play or auto button on use. Change last element to red text and turn it black when new element arrives.
+    // TOOD : Finish clickboard with await async.
+    // TODO : More CSS styling. 
+    
+export async function clickBoard() {
 
-export function clickBoard() {
+    startRadixSort(); //Sorts the test array, we dont use it just  for show.
+    for (let i = 0; i < iterations.length; i++) {
+        const buckets = iterations[i]; //All the buckets in the current iteration
 
+        for (let j = 0; j < buckets.length; j++) {
+            const bucketArray = buckets[j] //The array within that bucket
+
+            for (let k = 0; k < bucketArray.length; k++) {
+                const value = bucketArray[k]; //The value within that bucket array
+                await nextClick();
+                populateBoard(value, j, i, testArr.length, iterations.length);
+            }
+        }
+    }
 }
