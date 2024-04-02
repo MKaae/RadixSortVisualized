@@ -75,9 +75,9 @@ export function populateBoard(value, bucket, iteration, arrayLength, iterationsL
     if (tempArray.length === arrayLength) { //Every 10th iteration we display the new array
         displayNewArray(tempArray);
         tempArray = [];
-        document.getElementById('current-iteration').textContent = `Current iteration: ${iteration + 1}`
-
+        
         if (iteration !== iterationsLength - 1) { //We clear the elements everytime we have iterated through all elements, except the last iteration
+            document.getElementById('current-iteration').textContent = `Current iteration: ${iteration + 2}`
             for (let i = 0; i < 10; i++) {
                 document.getElementById(`b-${i}`).firstElementChild.innerHTML = "";
                 lastNumber = undefined;
