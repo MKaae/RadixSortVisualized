@@ -1,7 +1,10 @@
 "use strict";
 import { populateBoard, nextClick } from "../view/view.js"
 
-const testArr = [0, 1, 382, 32, 49, 20, 2133, 34825, 123, 9, 4294]; // Array that will be sorted.
+// Array that will be sorted.
+const testArr = [0, 1, 382, 32, 49, 20, 2133, 34825, 123, 9, 4294];
+// const testArr = [226, 27, 278, 1, 283, 211, 590, 5171, 2523, 2185];
+// const testArr = [9, 2, 1, 5, 6, 7, 3, 4 ,0, 8]
 let iterations = []; // This contains every iteration of the algorithm so we can visualise it later on.
 let timeOutValue = 300; // This controls how fast our tickrate is.
 
