@@ -2,11 +2,10 @@
 import { populateBoard, nextClick } from "../view/view.js"
 
 // Array that will be sorted.
-const testArr = [0, 1, 382, 32, 49, 20, 2133, 34825, 123, 9, 4294];
-// const testArr = [226, 27, 278, 1, 283, 211, 590, 5171, 2523, 2185];
+const testArr = [10, 1, 382, 32, 49, 20, 2133, 34825, 123, 9, 4294];
 // const testArr = [9, 2, 1, 5, 6, 7, 3, 4 ,0, 8]
 let iterations = []; // This contains every iteration of the algorithm so we can visualise it later on.
-let timeOutValue = 300; // This controls how fast our tickrate is.
+// let timeOutValue = 300; // This controls how fast our tickrate is.
 
 export function startRadixSort() {
     radixSort(testArr);
@@ -56,27 +55,69 @@ export function getArray() { // This returns the array to the view
     return testArr;
 }
 
+// export function autoBoardOld() {
+//     startRadixSort(); //Sorts the test array, we dont use it just  for show.
+//     for (let i = 0; i < iterations.length; i++) {
+//         const buckets = iterations[i]; //All the buckets in the current iteration
+
+//         for (let j = 0; j < buckets.length; j++) {
+//             const bucketArray = buckets[j] //The array within that bucket
+
+//             for (let k = 0; k < bucketArray.length; k++) {
+//                 const value = bucketArray[k]; //The value within that bucket array
+//                 setTimeout(() => {
+//                     populateBoard(value, j, i, testArr.length, iterations.length); //Timeout for animating the view
+//                 }, timeOutValue);
+//                 timeOutValue += 300;
+//             }
+//         }
+//     }
+// }
+
 export function autoBoard() {
     startRadixSort(); //Sorts the test array, we dont use it just  for show.
-    for (let i = 0; i < iterations.length; i++) {
-        const buckets = iterations[i]; //All the buckets in the current iteration
+    nextIteration(0,0,0);
+}
 
-        for (let j = 0; j < buckets.length; j++) {
-            const bucketArray = buckets[j] //The array within that bucket
+function nextIteration(i,j,k) {
+    
+    const buckets = iterations[i]; //All the buckets in the current iteration
 
-            for (let k = 0; k < bucketArray.length; k++) {
-                const value = bucketArray[k]; //The value within that bucket array
-                setTimeout(() => {
-                    populateBoard(value, j, i, testArr.length, iterations.length); //Timeout for animating the view
-                }, timeOutValue);
-                timeOutValue += 300;
+    if (!buckets || !buckets[j]) {
+        return;
+    }
+
+
+    const bucketArray = buckets[j] || [] //The array within that bucket
+
+    if(bucketArray.length == 0){
+        setTimeout(() => nextIteration(i,j,k), 0);
+    }
+    
+    const value = bucketArray[k]; //The value within that bucket array
+
+    if(value != undefined){
+        populateBoard(value, j, i, testArr.length, iterations.length);
+    }
+
+    if(k<bucketArray.length -1) {
+        k++;
+    } else {
+        k=0;
+        if(j<buckets.length -1){
+            j++;
+        } else {
+            j=0;
+            if(i < iterations.length) {
+                i++;
             }
         }
     }
+
+    if(i < iterations.length && bucketArray.length != 0) {
+        setTimeout(() => nextIteration(i,j,k), 500);
+    }
 }
-    // TODO : Remove either play or auto button on use. Change last element to red text and turn it black when new element arrives.
-    // TOOD : Finish clickboard with await async.
-    // TODO : More CSS styling. 
     
 export async function clickBoard() {
 
